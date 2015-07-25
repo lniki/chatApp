@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="message")
  */
-class Product
+class Message
 {
     /**
      * @ORM\Column(type="integer")
