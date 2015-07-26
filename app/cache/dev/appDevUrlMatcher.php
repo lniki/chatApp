@@ -138,6 +138,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'hello')), array (  '_controller' => 'AppBundle\\Controller\\DefaultController::helloAction',));
             }
 
+            if (0 === strpos($pathinfo, '/app/services')) {
+                // app_polling_savemessage
+                if ($pathinfo === '/app/services/sendMessage') {
+                    return array (  '_controller' => 'AppBundle\\Controller\\PollingController::saveMessageAction',  '_route' => 'app_polling_savemessage',);
+                }
+
+                // app_polling_pollmessages
+                if ($pathinfo === '/app/services/pollMessages') {
+                    return array (  '_controller' => 'AppBundle\\Controller\\PollingController::pollMessagesAction',  '_route' => 'app_polling_pollmessages',);
+                }
+
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

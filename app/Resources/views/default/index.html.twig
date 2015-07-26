@@ -1,6 +1,52 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    Homepage.
-    <p>Activate your account before {{ 'next Monday'|date('M j, Y') }}</p>
+    <div id = 'messages'></div>
+    <input type='text' id = 'newMessage'>
+    <br />
+    <input type="button" onclick='sendMessage()' value='Send message'>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+    $( document ).ready(function() {
+        lastMessageTime = moment().format('YYYY-MM-DD HH:mm:ss');
+        pollMessages();
+    });
+    
+    function sendMessage() {
+        var newMessage = $('#newMessage').val();
+        $.ajax({
+            async: true,
+            url: 'http://localhost/chatapp/web/app_dev.php/app/services/sendMessage',
+            type: "POST",
+            data: { message : newMessage },
+            success: function (msg) {
+                console.log(msg);
+               // poll();
+            }
+        });
+    }
+    
+    function pollMessages() {
+        $.ajax({
+            async: true,
+            url: 'http://localhost/chatapp/web/app_dev.php/app/services/pollMessages',
+            type: "POST",
+            data: { lastMessageTime : lastMessageTime },
+            success: function (msg) {
+                console.log(msg);
+                msg = JSON.parse(msg);
+                if(msg[0] != 'No new messages.') {
+                    lastMessageTime = moment(msg[msg.length - 1]['date']['date']).format('YYYY-MM-DD HH:mm:ss');
+                    msg.forEach(function(obj) {
+                        $('#messages').append(obj.text + '<br />');
+                    });
+                } else {
+                    lastMessageTime = moment().format('YYYY-MM-DD HH:mm:ss');
+                }
+                pollMessages();
+            }
+        });
+    }
+    </script>
 {% endblock %}
