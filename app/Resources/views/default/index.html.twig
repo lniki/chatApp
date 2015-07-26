@@ -17,7 +17,7 @@
         var newMessage = $('#newMessage').val();
         $.ajax({
             async: true,
-            url: 'http://localhost/chatapp/web/app_dev.php/app/services/sendMessage',
+            url: "{{ url('sendMessage') }}",
             type: "POST",
             data: { message : newMessage },
             success: function (msg) {
@@ -30,7 +30,7 @@
     function pollMessages() {
         $.ajax({
             async: true,
-            url: 'http://localhost/chatapp/web/app_dev.php/app/services/pollMessages',
+            url: "{{ url('pollMessages') }}",
             type: "POST",
             data: { lastMessageTime : lastMessageTime },
             success: function (msg) {

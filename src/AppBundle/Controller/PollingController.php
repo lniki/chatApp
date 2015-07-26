@@ -9,12 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Message;
 
 /**
- * @Route("/app/services")
+ * @Route("/app/services", name="services")
  */
 class PollingController extends Controller
 {
     /**
-     * @Route("/sendMessage")
+     * @Route("/sendMessage", name="sendMessage")
      */
     public function saveMessageAction(Request $request) {
         $message = new Message();
@@ -28,7 +28,7 @@ class PollingController extends Controller
     }
     
     /**
-     * @Route("/pollMessages")
+     * @Route("/pollMessages", name="pollMessages")
      */
     public function pollMessagesAction(Request $request) {  
         session_write_close();
@@ -45,7 +45,7 @@ class PollingController extends Controller
             ORDER BY m.id DESC'
         )->setParameter('lastMessageTime', $lastMessageTime);
         
-        while (!$newMessage && $currenttime <= $starttime + 10) {
+        while (!$newMessage && $currenttime <= $starttime + 40) {
             $messages = $query->getResult(\Doctrine\ORM\AbstractQuery::HYDRATE_ARRAY);
             if(!empty($messages)) {
                 $newMessage = true;

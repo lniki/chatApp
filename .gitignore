@@ -2,3 +2,6 @@ app/logs/*
 *.log
 /app/logs/*
 /app/logs/*.log
+app/cache
+app/cache/*
+/app/cache/*

@@ -22,20 +22,20 @@ class __TwigTemplate_5e4b6eca46cba4f7b941d7b7426d03adc657e5447b5767ad8172ca6f48a
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_48cb0bb0a17e7d933b62cddfd6447790540d013b1b5bf1349fd2e624af7eac32 = $this->env->getExtension("native_profiler");
-        $__internal_48cb0bb0a17e7d933b62cddfd6447790540d013b1b5bf1349fd2e624af7eac32->enter($__internal_48cb0bb0a17e7d933b62cddfd6447790540d013b1b5bf1349fd2e624af7eac32_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/index.html.twig"));
+        $__internal_995891158cc603cb08a319b1c85e30d6fb1b2b8d93d9de636f0abfdfd26f2048 = $this->env->getExtension("native_profiler");
+        $__internal_995891158cc603cb08a319b1c85e30d6fb1b2b8d93d9de636f0abfdfd26f2048->enter($__internal_995891158cc603cb08a319b1c85e30d6fb1b2b8d93d9de636f0abfdfd26f2048_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "default/index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_48cb0bb0a17e7d933b62cddfd6447790540d013b1b5bf1349fd2e624af7eac32->leave($__internal_48cb0bb0a17e7d933b62cddfd6447790540d013b1b5bf1349fd2e624af7eac32_prof);
+        $__internal_995891158cc603cb08a319b1c85e30d6fb1b2b8d93d9de636f0abfdfd26f2048->leave($__internal_995891158cc603cb08a319b1c85e30d6fb1b2b8d93d9de636f0abfdfd26f2048_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_06897f898dc9822abcea7758731588e4432d1f20ebabece558a0c4eef8d2f929 = $this->env->getExtension("native_profiler");
-        $__internal_06897f898dc9822abcea7758731588e4432d1f20ebabece558a0c4eef8d2f929->enter($__internal_06897f898dc9822abcea7758731588e4432d1f20ebabece558a0c4eef8d2f929_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_add82f2e2473d759c27a1ae9387449deca9c18a3139f0c5439090eed7c716588 = $this->env->getExtension("native_profiler");
+        $__internal_add82f2e2473d759c27a1ae9387449deca9c18a3139f0c5439090eed7c716588->enter($__internal_add82f2e2473d759c27a1ae9387449deca9c18a3139f0c5439090eed7c716588_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "    <div id = 'messages'></div>
@@ -44,15 +44,15 @@ class __TwigTemplate_5e4b6eca46cba4f7b941d7b7426d03adc657e5447b5767ad8172ca6f48a
     <input type=\"button\" onclick='sendMessage()' value='Send message'>
 ";
         
-        $__internal_06897f898dc9822abcea7758731588e4432d1f20ebabece558a0c4eef8d2f929->leave($__internal_06897f898dc9822abcea7758731588e4432d1f20ebabece558a0c4eef8d2f929_prof);
+        $__internal_add82f2e2473d759c27a1ae9387449deca9c18a3139f0c5439090eed7c716588->leave($__internal_add82f2e2473d759c27a1ae9387449deca9c18a3139f0c5439090eed7c716588_prof);
 
     }
 
     // line 9
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_956e3fe9894f7d69176450149d5be1785c641c664eda41f34697dffbc636d686 = $this->env->getExtension("native_profiler");
-        $__internal_956e3fe9894f7d69176450149d5be1785c641c664eda41f34697dffbc636d686->enter($__internal_956e3fe9894f7d69176450149d5be1785c641c664eda41f34697dffbc636d686_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_1ee1cfd1fb879e881cc0609ab1aa89b468b1d3ba0101b6788a01ad0d2ea211c3 = $this->env->getExtension("native_profiler");
+        $__internal_1ee1cfd1fb879e881cc0609ab1aa89b468b1d3ba0101b6788a01ad0d2ea211c3->enter($__internal_1ee1cfd1fb879e881cc0609ab1aa89b468b1d3ba0101b6788a01ad0d2ea211c3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 10
         echo "    <script type=\"text/javascript\">
@@ -65,7 +65,10 @@ class __TwigTemplate_5e4b6eca46cba4f7b941d7b7426d03adc657e5447b5767ad8172ca6f48a
         var newMessage = \$('#newMessage').val();
         \$.ajax({
             async: true,
-            url: 'http://localhost/chatapp/web/app_dev.php/app/services/sendMessage',
+            url: \"";
+        // line 20
+        echo $this->env->getExtension('routing')->getUrl("sendMessage");
+        echo "\",
             type: \"POST\",
             data: { message : newMessage },
             success: function (msg) {
@@ -78,7 +81,10 @@ class __TwigTemplate_5e4b6eca46cba4f7b941d7b7426d03adc657e5447b5767ad8172ca6f48a
     function pollMessages() {
         \$.ajax({
             async: true,
-            url: 'http://localhost/chatapp/web/app_dev.php/app/services/pollMessages',
+            url: \"";
+        // line 33
+        echo $this->env->getExtension('routing')->getUrl("pollMessages");
+        echo "\",
             type: \"POST\",
             data: { lastMessageTime : lastMessageTime },
             success: function (msg) {
@@ -99,7 +105,7 @@ class __TwigTemplate_5e4b6eca46cba4f7b941d7b7426d03adc657e5447b5767ad8172ca6f48a
     </script>
 ";
         
-        $__internal_956e3fe9894f7d69176450149d5be1785c641c664eda41f34697dffbc636d686->leave($__internal_956e3fe9894f7d69176450149d5be1785c641c664eda41f34697dffbc636d686_prof);
+        $__internal_1ee1cfd1fb879e881cc0609ab1aa89b468b1d3ba0101b6788a01ad0d2ea211c3->leave($__internal_1ee1cfd1fb879e881cc0609ab1aa89b468b1d3ba0101b6788a01ad0d2ea211c3_prof);
 
     }
 
@@ -115,6 +121,6 @@ class __TwigTemplate_5e4b6eca46cba4f7b941d7b7426d03adc657e5447b5767ad8172ca6f48a
 
     public function getDebugInfo()
     {
-        return array (  58 => 10,  52 => 9,  41 => 4,  35 => 3,  11 => 1,);
+        return array (  86 => 33,  70 => 20,  58 => 10,  52 => 9,  41 => 4,  35 => 3,  11 => 1,);
     }
 }

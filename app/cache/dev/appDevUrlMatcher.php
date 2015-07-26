@@ -139,14 +139,14 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             if (0 === strpos($pathinfo, '/app/services')) {
-                // app_polling_savemessage
+                // sendMessage
                 if ($pathinfo === '/app/services/sendMessage') {
-                    return array (  '_controller' => 'AppBundle\\Controller\\PollingController::saveMessageAction',  '_route' => 'app_polling_savemessage',);
+                    return array (  '_controller' => 'AppBundle\\Controller\\PollingController::saveMessageAction',  '_route' => 'sendMessage',);
                 }
 
-                // app_polling_pollmessages
+                // pollMessages
                 if ($pathinfo === '/app/services/pollMessages') {
-                    return array (  '_controller' => 'AppBundle\\Controller\\PollingController::pollMessagesAction',  '_route' => 'app_polling_pollmessages',);
+                    return array (  '_controller' => 'AppBundle\\Controller\\PollingController::pollMessagesAction',  '_route' => 'pollMessages',);
                 }
 
             }
